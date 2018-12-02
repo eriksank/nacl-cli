@@ -11,13 +11,11 @@ description = {
 }
 dependencies = {
     'lua >= 5.1',
-    'tweetnacl',
+    'luatweetnacl',
     'base58',
     'lbase64', 
     'sha2',
-    'inspect',
-    'f-strings',
-    'luastatic'
+    'f-strings'
 }
 build = {
    type = "builtin",
@@ -27,7 +25,6 @@ build = {
       ["cli-cmds"] = "cli-cmds.lua",
       ["ext-string"] = "ext-string.lua",
       ["nacl-cli"] = "nacl-cli.lua",
-      smoketest = "smoketest.lua",
       util = "util.lua"
    },
   install = {

@@ -1,4 +1,6 @@
 nacl-cli
 *.tar.gz
 *.rock
+dist
+.luapak
 

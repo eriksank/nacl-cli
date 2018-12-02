@@ -11,7 +11,6 @@ local base64 = require("base64")
 local sha2 = require("sha2")
 local util=require("util")
 local F=require("F")
-local inspect=require("inspect")
 
 local armour = {}
 
