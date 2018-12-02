@@ -7,7 +7,7 @@
 #-------------------------------------------------------
 VERSION=$(cat VERSION)
 echo "creating release for version $VERSION"
-./build.sh
+./_build.sh
 RELEASE=nacl-cli-linux-64bit-$VERSION
 rm -rf $RELEASE
 mkdir -p $RELEASE
