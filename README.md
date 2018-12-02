@@ -34,6 +34,29 @@ It would undoubtedly be possible to generate a static executable for Windows.
 However, Windows is not understood to be viable operating system for serious cryptography.
 If you store or transmit sensitive information in that kind of context, encrypting it, looks irrelevant.
 
+## 6. Installation
+
+The redistributable contains the following files:
+
+* `nacl-cli` : the actual program
+* `install.sh`: this script will install `nacl-cli` in `/usr/local/bin`. Must be executed as root ("sudo ./install.sh")
+* `uninstall.sh`: this script will remove `nacl-cli` from `/usr/local/bin`. Must be executed as root  ("sudo ./uninstall.sh")
+
+After installation, the program should be on your standard execution path. You can check this from your terminal:
+
+```
+$ nacl-cli
+Usage:
+...
+```
+
+It is not mandatory to install the program in a standard location.
+
+However, it is considered bad practice to execute programs that are not owned by root. 
+Root ownership of the programs prevent other programs that you would run as ordinary user, from modifying them.
+This is undoubtedly the number-one reason why linux systems, unlike Windows, generally do not suffer from virus plagues.
+
+
 ## 4. Similar programs
 
 This is not the first attempt at replacing the venerable PGP program with a simpler command line tool that automatically defaults to modern elliptic-curve cryptography, with its much shorter keys. We are indeed trying to abandon ancient, semi-prime cryptography such as RSA.
@@ -89,32 +112,13 @@ Usage:
         outputs this helptext
 ```
 
-## 6. Installation
-
-The redistributable contains the following files:
-
-* `nacl-cli` : the actual program
-* `install.sh`: this script will install `nacl-cli` in `/usr/local/bin`. Must be executed as root ("sudo ./install.sh")
-* `uninstall.sh`: this script will remove `nacl-cli` from `/usr/local/bin`. Must be executed as root  ("sudo ./uninstall.sh")
-
-After installation, the program should be on your standard execution path. You can check this from your terminal:
-
-```
-$ nacl-cli
-Usage:
-...
-```
-
-It is not mandatory to install the program in a standard location.
-
-However, it is considered bad practice to execute programs that are not owned by root. 
-Root ownership of the programs prevent other programs that you would run as ordinary user, from modifying them.
-This is undoubtedly the number-one reason why linux systems, unlike Windows, generally do not suffer from virus plagues.
-
 
 ## 7. Detailed usage
 
-TO DO
+Alice wants to send an encrypted message to Bob. How does it go?
+
+## 7.1. Alice 
+
 
 ## 8. Reusing and embedding scripts in your own program
 
