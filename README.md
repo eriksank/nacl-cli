@@ -1,9 +1,5 @@
 # nacl-cli
 
-## 0. Draft notice
-
-Still busy finishing this up. Almost done, I guess.
-
 ## 1. Synopsis
 
 `nacl-cli` is a program that provides a text-based, serialization format for encrypting/decrypting with Daniel Bernstein's `tweetnacl` library by using the `philanc/luatweetnacl` bindings. I have called it "armour", similar to the option in PGP.
@@ -49,6 +45,7 @@ The redistributable contains the following files:
 * `nacl-cli` : the actual program
 * `install.sh`: this script will install `nacl-cli` in `/usr/local/bin`. Must be executed as root ("sudo ./install.sh")
 * `uninstall.sh`: this script will remove `nacl-cli` from `/usr/local/bin`. Must be executed as root  ("sudo ./uninstall.sh")
+* `_smoketest.sh`: this script tests `nacl-cli`.
 
 After installation, the program should be on your standard execution path. You can check this from your terminal:
 
