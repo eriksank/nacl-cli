@@ -219,8 +219,6 @@ TO DO
 **nacl-cli**
 
 Written by Erik Poupaert, Cambodia
-
 (c) 2018
-
 Licensed under the LGPL
 
