@@ -34,7 +34,7 @@ Here a [link](https://cr.yp.to/highspeed/naclcrypto-20090310.pdf) to Daniel Bern
 This is not the first attempt at replacing the venerable PGP program with a simpler command line tool that automatically defaults to modern elliptic-curve cryptography, with its much shorter keys. We are indeed trying to abandon ancient, semi-prime cryptography such as RSA.
 
 * Salty: [carlos8f/salty](https://github.com/carlos8f/salty)
-* pdp: [stef/pbp] (https://github.com/stef/pbp)
+* pdp: [stef/pbp](https://github.com/stef/pbp)
  
 What is the problem with these alternatives?
 
