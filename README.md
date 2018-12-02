@@ -36,6 +36,16 @@ If you store or transmit sensitive information in that kind of context, encrypti
 
 ## 4. Installation
 
+Download the latest release from the [releases](https://github.com/eriksank/nacl-cli/releases/latest).
+The redistributable file looks like `nacl-cli-linux-64bit-0.5.tar.gz`. The "0.5" is the version number of the release.
+A newer release will have a higher version number.
+
+Next, you can decompress the redistributable. You may have a desktop program for that purpose, but you can also do it from the command line:
+
+```
+$ tar xvzf nacl-cli-linux-64bit-0.5.tar.gz
+```
+
 The redistributable contains the following files:
 
 * `nacl-cli` : the actual program
