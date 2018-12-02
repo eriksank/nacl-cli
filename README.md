@@ -216,9 +216,9 @@ TO DO
 
 ## 9. License
 
-**nacl-cli**
-
+```
 Written by Erik Poupaert, Cambodia
 (c) 2018
 Licensed under the LGPL
+```
 
