@@ -34,7 +34,7 @@ It would undoubtedly be possible to generate a static executable for Windows.
 However, Windows is not understood to be viable operating system for serious cryptography.
 If you store or transmit sensitive information in that kind of context, encrypting it, looks irrelevant.
 
-## 6. Installation
+## 4. Installation
 
 The redistributable contains the following files:
 
@@ -57,7 +57,7 @@ Root ownership of the programs prevent other programs that you would run as ordi
 This is undoubtedly the number-one reason why linux systems, unlike Windows, generally do not suffer from virus plagues.
 
 
-## 4. Similar programs
+## 5. Similar programs
 
 This is not the first attempt at replacing the venerable PGP program with a simpler command line tool that automatically defaults to modern elliptic-curve cryptography, with its much shorter keys. We are indeed trying to abandon ancient, semi-prime cryptography such as RSA.
 
@@ -75,7 +75,7 @@ Therefore, say no to program platformization.
 The user does not need to know that I have programmed the tool in lua. He can just download the executable program and be done with it.
 
 
-## 5. Usage summary
+## 6. Usage summary
 
 `nacl-cli` supports the following commands:
 
@@ -117,10 +117,100 @@ Usage:
 
 Alice wants to send an encrypted message to Bob. How does it go?
 
-## 7.1. Alice 
+
+### 7.1. Alice generates her keys
 
 
-## 8. Reusing and embedding scripts in your own program
+```
+alice $ nacl-cli genseckey
+nacl.cryp.sec.vhooeDeX4pckXxrA5wRCxU8EeU4NexgxQVjz2QhhDQ1n.uzw
+
+
+alice $ seckey=nacl.cryp.sec.vhooeDeX4pckXxrA5wRCxU8EeU4NexgxQVjz2QhhDQ1n.uzw nacl-cli calcpubkey
+nacl.cryp.pub.Hdkh4LrtMb2KfnLAqviyBqpmz4ntKcDCiJh8Pk5kZ89E.yPG
+```
+
+Now Alice can send her public key to Bob.
+
+
+### 7.2. Bob encrypts a message for Alice
+
+
+```
+bob $ echo "this is my secret message" | nacl-cli enc pubkey=nacl.cryp.pub.Hdkh4LrtMb2KfnLAqviyBqpmz4ntKcDCiJh8Pk5kZ89E.yPG
+--nacl-crypt--begin--
+eph-pub:nacl.cryp.pub.DAnrM3apTQ7pBsZYx6sPkxRtQhWs9pa7taAnnE9NY6jw.Nd9
+nonce:nacl.cryp.nonce.FrvHS6NNNndv44LySunkKE8Q5u6f5NRaL.2eU
+.
+8URzXs0ErZ8TqqMZsddai2a+/mRiuTa6BUxkPubMMtsihsPYchtGNxTq
+--nacl-crypt--end--
+```
+
+The message is encrypted with an ephemeral secret. Alice can read it, but it does not authenticate the sender. 
+The sender could actually be anybody who knows Alice's key.
+If Bob wanted to guarantee to Alice that the message came from him, he would have had to sign it first.
+Hence, this message is Off-The-Record (OTR).
+
+### 7.3. Alice decrypts Bob's message with her secret key
+
+```
+alice $ echo "--nacl-crypt--begin--
+> eph-pub:nacl.cryp.pub.DAnrM3apTQ7pBsZYx6sPkxRtQhWs9pa7taAnnE9NY6jw.Nd9
+> nonce:nacl.cryp.nonce.FrvHS6NNNndv44LySunkKE8Q5u6f5NRaL.2eU
+> .
+> 8URzXs0ErZ8TqqMZsddai2a+/mRiuTa6BUxkPubMMtsihsPYchtGNxTq
+> --nacl-crypt--end--
+> " | seckey=nacl.cryp.sec.vhooeDeX4pckXxrA5wRCxU8EeU4NexgxQVjz2QhhDQ1n.uzw ./nacl-cli dec
+this is my secret message
+```
+
+Alice could also have stored the message in a file mymess.txt and then decrypt it:
+
+```
+alice $ cat mymess.txt | seckey=nacl.cryp.sec.vhooeDeX4pckXxrA5wRCxU8EeU4NexgxQVjz2QhhDQ1n.uzw ./nacl-cli dec
+this is my secret message
+```
+
+### 7.4. Note about using secrets on the command line
+
+When a program parameter is not security-sensitive, you can simply supply it as an argument. Example:
+
+```
+$ nacl-cli enc pubkey=$nacl.cryp.pub
+```
+
+This is ok for public keys. It is recommended to transmit secret keys as environment variables:
+
+```
+$ pubkey=$nacl.cryp.sec nacl-cli enc
+```
+
+If you put the argument before the `nacl-cli` it will be transmitted through the environment.
+If you put the argument after the `nacl-cli` command, it will be transmitted as a normal argument.
+
+Only the user's (other) programs (and root) can query a program's environment.
+All users can see the program's normal command line arguments.
+
+This problem has been discussed umpteen times:
+
+* [Is it safe to store critical passwords in server environment variables?](https://superuser.com/questions/708355/is-it-safe-to-store-critical-passwords-in-server-environment-variables)
+
+* [Is it secure to store passwords as environment variables (rather than as plain text) in config files?](https://stackoverflow.com/questions/12461484/is-it-secure-to-store-passwords-as-environment-variables-rather-than-as-plain-t)
+
+* [How to pass a password to a child process?](https://unix.stackexchange.com/questions/296297/how-to-pass-a-password-to-a-child-process)
+
+* [how to use Environment Variables keep your secret keys safe & secure!](https://hackernoon.com/how-to-use-environment-variables-keep-your-secret-keys-safe-secure-8b1a7877d69c)
+
+Still, it is possible to do a lot of things wrong. The following mistakes can impair the security of your secrets:
+
+[Why you shouldn't use ENV variables for secret data](https://diogomonica.com/2017/03/27/why-you-shouldnt-use-env-variables-for-secret-data)
+
+Still, there is not really an alternative either.
+
+Conclusion: as usual, it is only safe, if you know what you are doing.
+
+
+## 8. Reusing and embedding the script in your own program
 
 TO DO
 
