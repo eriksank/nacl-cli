@@ -274,7 +274,8 @@ CHECK: ok
 
 Approximately every programming language worth its salt can fork off a child process to start running another program in it.
 `nacl-cli` operates as a filter. It accepts its input on `stdin` and produces output on `stdout`.
-If the program terminated successfully, it will terminate with result code 0. Otherwise, it will terminate with result code 1.
+If the program terminated successfully, it will conventionally terminate with result code `0`.
+Otherwise, it will terminate with result code `1`.
 In case of errors, you will find the error message on `stderr`.
 
 ### 10.2. Loading nacl-cli as a lua module
