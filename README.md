@@ -1,12 +1,12 @@
-#nacl-cli
+# nacl-cli
 
-##temporary draft notice
+## Temporary draft notice
 
 The program is code-complete now.
 
 However, I am still busy finishing up documentation and going through the publication procedure.
 
-##Synopsis
+## Synopsis
 
 `nacl-cli` is a program that provides a text-based, serialization format for Daniel Bernstein's `tweetnacl` library by using the `philanc/luatweetnacl` bindings. I called it "armour", similar to the option in PGP.
 
