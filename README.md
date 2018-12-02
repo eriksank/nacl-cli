@@ -214,21 +214,74 @@ Still, it is possible to do a lot of things wrong. The following mistakes can im
 
 Still, there is not really an alternative either. Conclusion: as usual, it is only safe, if you know what you are doing.
 
+## 9. Running the built-in tests on nacl-cli
 
-## 9. Reusing and embedding the script in your own program
+The program `_smoketest.sh` tests all commands through the commandline interface:
 
-### 9.1. Chaining nacl-cli as an external program
+```
+ $ ./_smoketest.sh 
+[generating secret] ...
+seckey=nacl.cryp.sec.aeaZWHmi7KkDQGDK7McxLySASLCuuYfY1wfdD9uLZrVB.Zyw
+[calculating public key] ...
+calcpubkey ... SUCCESS
+pubkey=nacl.cryp.pub.XjVox6UgdoZYs9y5ed63qCE8jBXBRt5k4k12FDJUmiME.h3E
+[encrypting message] ...
+encrypt ... SUCCESS
+[crypttext]
+--nacl-crypt--begin--
+eph-pub:nacl.cryp.pub.AcWC9RTbDMSLZwqaj49Pi6REuqvjKcc9t2xja5AGiY3B.nqs
+nonce:nacl.cryp.nonce.2kpfHnn8aMoHbUFNEcq1DrUdmzMg42HGG.2nE
+.
+PtBifjLjh77sX25NAmJaVm3qwcpKCkBiYoxebtYOrd2UfuNf6/LT
+--nacl-crypt--end--
+[decrypting message] ...
+decrypt ... SUCCESS
+[plaintext]
+this is a test message
+
+```
+
+The program `_smoketest.lua` tests all commands by loading the armour as a lua module while bypassing the commandline interface:
+
+```
+$ ./_smoketest.lua 
+-------------------
+checking key generation
+-------------------
+calculation pubkey
+CHECK: ok
+-------------------
+checking encryption/decryption
+-------------------
+--nacl-crypt--begin--
+eph-pub:nacl.cryp.pub.9NFDpQ5uNZuiqBCEFHCFqEgQwBT7vypa2M3ASuzneB73.Rwn
+nonce:nacl.cryp.nonce.NpoE93JCChTBN7TeZokHZ67koLkFisZE4.Xa9
+.
+B/GPfuHpxAFI9DojoQ8YEkRkbfwI0K1lbFXociccHb0SMP0Zb8qfT7pZ
+--nacl-crypt--end--
+transmission eph_pubkey
+CHECK: ok
+transmission nonce
+CHECK: ok
+decryption
+CHECK: ok
+
+```
+
+## 10. Reusing and embedding the script in your own program
+
+### 10.1. Chaining nacl-cli as an external program
 
 Approximately every programming language worth its salt can fork off a child process to start running another program in it.
 `nacl-cli` operates as a filter. It accepts its input on `stdin` and produces output on `stdout`.
 If the program terminated successfully, it will terminate with result code 0. Otherwise, it will terminate with result code 1.
 In case of errors, you will find the error message on `stderr`.
 
-### 9.2. Loading nacl-cli as a lua module
+### 10.2. Loading nacl-cli as a lua module
 
 TO DO
 
-## 10. License
+## 11. License
 
 ```
 Written by Erik Poupaert
