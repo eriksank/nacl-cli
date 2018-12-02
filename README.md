@@ -217,7 +217,8 @@ TO DO
 ## 9. License
 
 ```
-Written by Erik Poupaert, Cambodia
+Written by Erik Poupaert
+Cambodia
 (c) 2018
 Licensed under the LGPL
 ```
