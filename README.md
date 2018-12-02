@@ -114,8 +114,10 @@ This is undoubtedly the number-one reason why linux systems, unlike Windows, gen
 
 ## 7. Detailed usage
 
+TO DO
 
+## 8. Reusing and embedding scripts in your own program
 
-## Reusing and embedding scripts in your own program
+TO DO
 
 
