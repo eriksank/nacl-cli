@@ -280,7 +280,27 @@ In case of errors, you will find the error message on `stderr`.
 
 ### 10.2. Loading nacl-cli as a lua module
 
-TO DO
+You can install `nacl-cli` in your lua environment with:
+
+```
+$ luarocks nacl-cli
+```
+
+You can require it in your own script using:
+
+```
+local armour=require("armour")
+```
+
+You can use the following functions:
+```
+armour.genseckey()
+armour.calcpubkey(seckey_b58)
+armour.encrypt(pubkey_b58,plaintext)
+armour.decrypt(seckey_b58,crypttext)
+armour.isvalid_seckey(seckey_b58)
+armour.isvalid_pubkey(pubkey_b58)
+```
 
 ## 11. License
 
