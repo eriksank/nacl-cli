@@ -6,7 +6,7 @@ The program is code-complete now.
 
 However, I am still busy finishing up documentation and going through the publication procedure.
 
-## Synopsis
+## 1. Synopsis
 
 `nacl-cli` is a program that provides a text-based, serialization format for encrypting/decrypting with Daniel Bernstein's `tweetnacl` library by using the `philanc/luatweetnacl` bindings. I have called it "armour", similar to the option in PGP.
 
@@ -18,7 +18,7 @@ The program is a native, C-compiled executable, generated with `luastatic`, whic
 
 Internally, the program is a mixture between native code and lua scripts. However, this is of no importance to the user, who just sees one, small, single native binary.
 
-## Cryptography note
+## 2. Cryptographic note
 
 The page [NaCl: Networking and Cryptography library](https://nacl.cr.yp.to/valid.html) clarifies the following:
 
@@ -28,8 +28,13 @@ Daniel J. Bernstein, "Cryptography in NaCl", 45pp."
 
 Here a [link](https://cr.yp.to/highspeed/naclcrypto-20090310.pdf) to Daniel Bernstein's original publication.
 
+## 3. Support for Microsoft Windows
 
-## Similar programs
+It would undoubtedly be possible to generate a static executable for Windows.
+However, Windows is not understood to be viable operating system for serious cryptography.
+If you store or transmit sensitive information in that kind of context, encrypting it, looks irrelevant.
+
+## 4. Similar programs
 
 This is not the first attempt at replacing the venerable PGP program with a simpler command line tool that automatically defaults to modern elliptic-curve cryptography, with its much shorter keys. We are indeed trying to abandon ancient, semi-prime cryptography such as RSA.
 
@@ -47,7 +52,7 @@ Therefore, say no to program platformization.
 The user does not need to know that I have programmed the tool in lua. He can just download the executable program and be done with it.
 
 
-## Usage summary
+## 5. Usage summary
 
 `nacl-cli` supports the following commands:
 
@@ -83,5 +88,34 @@ Usage:
 
         outputs this helptext
 ```
+
+## 6. Installation
+
+The redistributable contains the following files:
+
+* `nacl-cli` : the actual program
+* `install.sh`: this script will install `nacl-cli` in `/usr/local/bin`. Must be executed as root ("sudo ./install.sh")
+* `uninstall.sh`: this script will remove `nacl-cli` from `/usr/local/bin`. Must be executed as root  ("sudo ./uninstall.sh")
+
+After installation, the program should be on your standard execution path. You can check this from your terminal:
+
+```
+$ nacl-cli
+Usage:
+...
+```
+
+It is not mandatory to install the program in a standard location.
+
+However, it is considered bad practice to execute programs that are not owned by root. 
+Root ownership of the programs prevent other programs that you would run as ordinary user, from modifying them.
+This is undoubtedly the number-one reason why linux systems, unlike Windows, generally do not suffer from virus plagues.
+
+
+## 7. Detailed usage
+
+
+
+## Reusing and embedding scripts in your own program
 
 
