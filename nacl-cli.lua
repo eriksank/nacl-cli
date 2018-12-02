@@ -8,6 +8,8 @@
 local cmds=require("cli-cmds")
 local cli=require("cli")
 
+_params=cli.splitArgs(arg)
+
 if #arg==0 then 
     io.stderr:write(cmds.helptext.."\n\n")
     cli.error("missing command")

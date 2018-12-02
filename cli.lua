@@ -5,7 +5,6 @@
 --      Licensed under the LGPL
 -------------------------------------------------------
 local util=require("util")
-
 local cli={}
 
 cli.error=function (msg)
@@ -20,7 +19,7 @@ cli.required=function(argName,argValue)
 end
 
 cli.splitArgs=function(table)
-    if not table then return nil end
+    if not table then return {} end
     local params={}
     for _,value in pairs(table) do
         local row=string.split(value,"=")
@@ -34,9 +33,7 @@ end
 cli.cmdArg=function(argName)
     local argValue=os.getenv(argName)
     if argValue then return argValue end
-    local args=cli.splitArgs(util.tail(arg))
-    if #args==0 then return "" end
-    return args[argName]
+    return _params[argName]
 end
 
 return cli

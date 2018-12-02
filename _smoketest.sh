@@ -33,7 +33,6 @@ check_errcode "encrypt" $?
 echo "[crypttext]"
 echo "$crypttext"
 
-
 echo "[decrypting message] ..."
 plaintext=$(echo "$crypttext" | seckey=$seckey $PROGRAM dec)
 check_errcode "decrypt" $?
