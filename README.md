@@ -8,7 +8,7 @@ However, I am still busy finishing up documentation and going through the public
 
 ## Synopsis
 
-`nacl-cli` is a program that provides a text-based, serialization format for Daniel Bernstein's `tweetnacl` library by using the `philanc/luatweetnacl` bindings. I called it "armour", similar to the option in PGP.
+`nacl-cli` is a program that provides a text-based, serialization format for Daniel Bernstein's `tweetnacl` library by using the `philanc/luatweetnacl` bindings. I have called it "armour", similar to the option in PGP.
 
 The program is a native, C-compiled executable, generated with `luastatic`, which embeds a (very) small lua interpreter.
 
