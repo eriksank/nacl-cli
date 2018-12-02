@@ -194,20 +194,15 @@ All users can see the program's normal command line arguments.
 This problem has been discussed umpteen times:
 
 * [Is it safe to store critical passwords in server environment variables?](https://superuser.com/questions/708355/is-it-safe-to-store-critical-passwords-in-server-environment-variables)
-
 * [Is it secure to store passwords as environment variables (rather than as plain text) in config files?](https://stackoverflow.com/questions/12461484/is-it-secure-to-store-passwords-as-environment-variables-rather-than-as-plain-t)
-
 * [How to pass a password to a child process?](https://unix.stackexchange.com/questions/296297/how-to-pass-a-password-to-a-child-process)
-
 * [how to use Environment Variables keep your secret keys safe & secure!](https://hackernoon.com/how-to-use-environment-variables-keep-your-secret-keys-safe-secure-8b1a7877d69c)
 
 Still, it is possible to do a lot of things wrong. The following mistakes can impair the security of your secrets:
 
-[Why you shouldn't use ENV variables for secret data](https://diogomonica.com/2017/03/27/why-you-shouldnt-use-env-variables-for-secret-data)
+* [Why you shouldn't use ENV variables for secret data](https://diogomonica.com/2017/03/27/why-you-shouldnt-use-env-variables-for-secret-data)
 
-Still, there is not really an alternative either.
-
-Conclusion: as usual, it is only safe, if you know what you are doing.
+Still, there is not really an alternative either. Conclusion: as usual, it is only safe, if you know what you are doing.
 
 
 ## 8. Reusing and embedding the script in your own program
