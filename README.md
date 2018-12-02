@@ -207,6 +207,15 @@ Still, there is not really an alternative either. Conclusion: as usual, it is on
 
 ## 8. Reusing and embedding the script in your own program
 
+### 8.1. Chaining nacl-cli as an external program
+
+Approximately every programming language worth its salt can fork off a child process to start running another program in it.
+`nacl-cli` operates as a filter. It accepts its input on `stdin` and produces output on `stdout`.
+If the program terminated successfully, it will terminate with result code 0. Otherwise, it will terminate with result code 1.
+In case of errors, you will find the error message on `stderr`.
+
+### 8.2. Loading nacl-cli as a lua module
+
 TO DO
 
 ## 9. License
