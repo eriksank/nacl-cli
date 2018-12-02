@@ -4,8 +4,8 @@ source = {
    url = "*** please add URL for source tarball, zip or repository here ***"
 }
 description = {
-   summary = "A serialization format ('armour') for nacl encryption",
-   homepage = "*** please enter a project homepage ***",
+   summary = "nacl-cli is a program that provides a text-based, serialization format for Daniel Bernstein's tweetnacl library",
+   homepage = "https://github.com/eriksank/nacl-cli",
    license = "LGPL",
    maintainer="Erik Poupaert <erik@sankuru.biz>"
 }
