@@ -214,4 +214,10 @@ Conclusion: as usual, it is only safe, if you know what you are doing.
 
 TO DO
 
+##9. License
+
+nacl-cli
+Written by Erik Poupaert, Cambodia
+(c) 2018
+Licensed under the LGPL
 
