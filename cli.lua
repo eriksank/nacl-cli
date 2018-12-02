@@ -4,19 +4,18 @@
 --      (c) 2018
 --      Licensed under the LGPL
 -------------------------------------------------------
-local F=require("F")
 local util=require("util")
 
 local cli={}
 
 cli.error=function (msg)
-    io.stderr:write(F"Error:{msg}\n")
+    io.stderr:write(string.format("Error: %s\n",msg))
     os.exit(1)
 end
 
 cli.required=function(argName,argValue)
     if not argValue then
-        cli.error(F"{argName} required")
+        cli.error(string.format("%s required",argName))
     end
 end
 
@@ -36,7 +35,7 @@ cli.cmdArg=function(argName)
     local argValue=os.getenv(argName)
     if argValue then return argValue end
     local args=cli.splitArgs(util.tail(arg))
-    if not args then return nil end
+    if #args==0 then return "" end
     return args[argName]
 end
 

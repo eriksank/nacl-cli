@@ -7,31 +7,35 @@
 #-------------------------------------------------------
 function check_errcode {
     echo -n "$1 ... "
-    if [ $2=0 ] ; then
+    if [ "$2" -eq 0 ] ; then
         echo "SUCCESS"
     else
         echo "FAIL"
+        exit 1
     fi
 }
 
+#PROGRAM="lua nacl-cli.lua"
+PROGRAM="./nacl-cli"
+
 echo "[generating secret] ..."
-seckey=$(./nacl-cli genseckey)
+seckey=$($PROGRAM genseckey)
 echo "seckey=$seckey"
 
 echo "[calculating public key] ..."
-pubkey=$(seckey=$seckey ./nacl-cli calcpubkey)
+pubkey=$(seckey=$seckey $PROGRAM calcpubkey)
 check_errcode "calcpubkey" $?
 echo "pubkey=$pubkey"
 
 echo "[encrypting message] ..."
-crypttext=$(echo "this is a test message" | ./nacl-cli enc pubkey=$pubkey)
+crypttext=$(echo "this is a test message" | $PROGRAM enc pubkey=$pubkey)
 check_errcode "encrypt" $?
 echo "[crypttext]"
 echo "$crypttext"
 
 
 echo "[decrypting message] ..."
-plaintext=$(echo "$crypttext" | seckey=$seckey ./nacl-cli dec)
+plaintext=$(echo "$crypttext" | seckey=$seckey $PROGRAM dec)
 check_errcode "decrypt" $?
 echo "[plaintext]"
 echo "$plaintext"

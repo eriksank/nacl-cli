@@ -21,7 +21,6 @@ end
 
 armour=require("armour")
 base58=require("base58")
-F=require("F")
 
 title("checking key generation")
 local pubkey_b58,seckey_b58=armour.box_keypair()
@@ -40,7 +39,7 @@ local nonce1=debug_context1.nonce
 print(crypttext)
 local plaintext2,errMsg,debug_context2=armour.decrypt(seckey_b58,crypttext)
 if(plaintext2==nil) then
-    print(F"ERROR: decryption failed: {errMsg}")
+    print(string.format("ERROR: decryption failed: %s",errMsg))
 end
 local eph_pubkey2=debug_context2.eph_pubkey
 local nonce2=debug_context2.nonce

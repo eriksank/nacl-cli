@@ -14,8 +14,7 @@ dependencies = {
     'luatweetnacl',
     'base58',
     'lbase64', 
-    'sha2',
-    'f-strings'
+    'sha2'
 }
 build = {
    type = "builtin",

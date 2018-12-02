@@ -10,7 +10,6 @@ local base58 = require("base58")
 local base64 = require("base64")
 local sha2 = require("sha2")
 local util=require("util")
-local F=require("F")
 
 local armour = {}
 
@@ -39,7 +38,7 @@ end
 function armour.genseckey()
     local box_pubkey_b58, box_seckey_b58 = armour.box_keypair() 
     local check_b58=armour.sha256_checkstring(box_seckey_b58)
-    local seckey_b58=F"nacl.cryp.sec.{box_seckey_b58}.{check_b58}"
+    local seckey_b58=string.format("nacl.cryp.sec.%s.%s",box_seckey_b58,check_b58)
     return seckey_b58
 end
 
@@ -84,19 +83,19 @@ end
 
 function armour.format_headerfield(key_b58,keytype)
     local check_b58=armour.sha256_checkstring(key_b58)
-    local formatted=F"nacl.cryp.{keytype}.{key_b58}.{check_b58}"
+    local formatted=string.format("nacl.cryp.%s.%s.%s",keytype,key_b58,check_b58)
     return formatted
 end
 
 function armour.format_crypttext(eph_pubkey_b58,nonce_b58,crypttext_b64)
     local template=
 [[--nacl-crypt--begin--
-eph-pub:{eph_pubkey_b58}
-nonce:{nonce_b58}
+eph-pub:%s
+nonce:%s
 .
-{crypttext_b64}
+%s
 --nacl-crypt--end--]]
-    local formatted=F(template)
+    local formatted=string.format(template,eph_pubkey_b58,nonce_b58,crypttext_b64)
     return formatted
 end
 
@@ -122,7 +121,7 @@ end
 function armour.decrypt(seckey_b58,crypttext)
 
     if not armour.isvalid_seckey(seckey_b58) then
-        return nil, F"invalid seckey: {seckey_b58}"
+        return nil, string.format("invalid seckey: %s",seckey_b58)
     end
 
     local pattern=[[%-%-nacl%-crypt%-%-begin%-%-
@@ -133,19 +132,19 @@ nonce:(.*)
 %-%-nacl%-crypt%-%-end%-%-]]
 
     local eph_pub_b58,nonce_b58,cryptmessage_b64=crypttext:match(pattern)
-    if eph_pub_b58==nil then return nil,F"cannot parse eph_pubkey: {eph_pub_b58}" end
-    if nonce_b58==nil then return nil,F"cannot parse nonce: {nonce_b58}" end
+    if eph_pub_b58==nil then return nil,string.format("cannot parse eph_pubkey: %s",eph_pub_b58) end
+    if nonce_b58==nil then return nil,string.format("cannot parse nonce: %s",nonce_b58) end
     local eph_pubkey=armour.getbinkey(eph_pub_b58)
     local nonce=armour.getbinkey(nonce_b58)
     local debug_context={eph_pubkey=eph_pubkey,nonce=nonce}
-    if cryptmessage_b64==nil then return nil,F"cannot parse cryptmessage: {cryptmessage_b64}",debug_context end
-    if not armour.isvalid_pubkey(eph_pub_b58) then return nil,F"invalid eph_pubkey: {eph_pub_b58}",debug_context end
-    if not armour.isvalid_nonce(nonce_b58) then return nil,F"invalid nonce: {nonce_b58}",debug_context end
+    if cryptmessage_b64==nil then return nil,"cannot parse cryptmessage",debug_context end
+    if not armour.isvalid_pubkey(eph_pub_b58) then return nil,string.format("invalid eph_pubkey: %s",eph_pub_b58),debug_context end
+    if not armour.isvalid_nonce(nonce_b58) then return nil,string.format("invalid nonce: %s",nonce_b58),debug_context end
     local seckey=armour.getbinkey(seckey_b58)
     local cryptmessage=base64.decode(cryptmessage_b64:gsub("\n", ""))
-    if cryptmessage==nil then return nil, F"invalid base64 cryptmessage",debug_context end
+    if cryptmessage==nil then return nil,"invalid base64 cryptmessage",debug_context end
     local plaintext, errmsg = nacl.box_open(cryptmessage, nonce, eph_pubkey, seckey)
-    if plaintext==nil then return nil, F"cannot decrypt cryptmessage: {errmsg}",debug_context end
+    if plaintext==nil then return nil, string.format("cannot decrypt cryptmessage: %s",errmsg),debug_context end
     return plaintext,"OK",debug_context
 end
 

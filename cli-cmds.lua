@@ -5,7 +5,6 @@
 --      Licensed under the LGPL
 -------------------------------------------------------
 local armour=require("armour")
-local F=require("F")
 local util=require("util")
 local cli=require("cli")
 
