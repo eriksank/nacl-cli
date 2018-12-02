@@ -171,7 +171,7 @@ alice $ cat mymess.txt | seckey=nacl.cryp.sec.vhooeDeX4pckXxrA5wRCxU8EeU4NexgxQV
 this is my secret message
 ```
 
-### 7.4. Note about using secrets on the command line
+## 8. Note about using secrets on the command line
 
 When a program parameter is not security-sensitive, you can simply supply it as an argument. Example:
 
@@ -205,20 +205,20 @@ Still, it is possible to do a lot of things wrong. The following mistakes can im
 Still, there is not really an alternative either. Conclusion: as usual, it is only safe, if you know what you are doing.
 
 
-## 8. Reusing and embedding the script in your own program
+## 9. Reusing and embedding the script in your own program
 
-### 8.1. Chaining nacl-cli as an external program
+### 9.1. Chaining nacl-cli as an external program
 
 Approximately every programming language worth its salt can fork off a child process to start running another program in it.
 `nacl-cli` operates as a filter. It accepts its input on `stdin` and produces output on `stdout`.
 If the program terminated successfully, it will terminate with result code 0. Otherwise, it will terminate with result code 1.
 In case of errors, you will find the error message on `stderr`.
 
-### 8.2. Loading nacl-cli as a lua module
+### 9.2. Loading nacl-cli as a lua module
 
 TO DO
 
-## 9. License
+## 10. License
 
 ```
 Written by Erik Poupaert
