@@ -2,7 +2,7 @@
 
 ## 1. Synopsis
 
-`nacl-cli` is a program that provides a text-based, serialization format for encrypting/decrypting with Daniel Bernstein's `tweetnacl` library by using the `philanc/luatweetnacl` bindings. I have called it "armour", similar to the option in PGP.
+`nacl-cli` is a program that provides a text-based, serialization format for encrypting/decrypting with Daniel Bernstein's `tweetnacl` library by using the [philanc/luatweetnacl](https://github.com/philanc/luatweetnacl) bindings. I have called it "armour", similar to the option in PGP.
 
 `nacl-cli` only handles encryption/decryption.
 
