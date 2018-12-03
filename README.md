@@ -8,7 +8,19 @@
 
 If you need signing and verification of signatures, you can use a tool like [minisign](https://github.com/jedisct1/minisign).
 
-## 2. A single, self-contained executable program
+
+## 2. Cryptographic note
+
+The page [NaCl: Networking and Cryptography library](https://nacl.cr.yp.to/valid.html) clarifies the following:
+
+"The following report specifies NaCl's default mechanism for public-key authenticated encryption, and along the way specifies NaCl's default mechanisms for scalar multiplication (Curve25519), secret-key authenticated encryption, secret-key encryption (Salsa20), and one-time authentication (Poly1305): 
+
+Daniel J. Bernstein, "Cryptography in NaCl", 45pp."
+
+Here a [link](https://cr.yp.to/highspeed/naclcrypto-20090310.pdf) to Daniel Bernstein's original publication.
+
+
+## 3. A single, self-contained executable program
 
 The program is a native, C-compiled executable, generated with [luapak](https://github.com/jirutka/luapak), which embeds a (very) small lua interpreter.
 
@@ -37,16 +49,6 @@ total 172K
 
 The `luapack` tool will produce statically-linked versions of these native modules, suitable for inclusion in the single, executable program. That spares you from dragging around lots of little files to be installed in different locations. It tremendously simplifies software packaging.
 
-
-## 3. Cryptographic note
-
-The page [NaCl: Networking and Cryptography library](https://nacl.cr.yp.to/valid.html) clarifies the following:
-
-"The following report specifies NaCl's default mechanism for public-key authenticated encryption, and along the way specifies NaCl's default mechanisms for scalar multiplication (Curve25519), secret-key authenticated encryption, secret-key encryption (Salsa20), and one-time authentication (Poly1305): 
-
-Daniel J. Bernstein, "Cryptography in NaCl", 45pp."
-
-Here a [link](https://cr.yp.to/highspeed/naclcrypto-20090310.pdf) to Daniel Bernstein's original publication.
 
 ## 4. Support for Microsoft Windows
 
