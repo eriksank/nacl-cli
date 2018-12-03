@@ -8,7 +8,14 @@
 
 If you need signing and verification of signatures, you can use a tool like [minisign](https://github.com/jedisct1/minisign).
 
-The program is a native, C-compiled executable, generated with `luapak`, which embeds a (very) small lua interpreter.
+The program is a native, C-compiled executable, generated with [luapak](https://github.com/jirutka/luapak), which embeds a (very) small lua interpreter.
+
+```
+$ ls -lh /usr/lib/x86_64-linux-gnu/liblua5.1.so.0.0.0
+-rw-r--r-- 1 root root 184K Apr 14  2016 /usr/lib/x86_64-linux-gnu/liblua5.1.so.0.0.0
+```
+
+This is the dynamically-linked version of the lua embedded scripting engine. It is not big, is it?
 
 Internally, the program is a mixture between native code and lua scripts. However, this is of no importance to the user, who just sees one, small, single native binary.
 
