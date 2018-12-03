@@ -304,7 +304,7 @@ In case of errors, you will find the error message on `stderr`.
 You can install `nacl-cli` in your lua environment with:
 
 ```
-$ luarocks nacl-cli
+$ luarocks install nacl-cli
 ```
 
 You can require it in your own script using:
