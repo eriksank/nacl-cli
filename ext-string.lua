@@ -4,6 +4,10 @@
 --      (c) 2018
 --      Licensed under the LGPL
 -------------------------------------------------------
+
+-- The origin of this function is a comment on stackoverflow
+-- It was contributed by its author to the public domain
+ 
 function string:split(delimiter)
   local result = {}
   local from  = 1
@@ -16,6 +20,9 @@ function string:split(delimiter)
   table.insert( result, string.sub( self, from  ) )
   return result
 end
+
+-- The origin of this function is a comment on stackoverflow
+-- It was contributed by its author to the public domain
 
 function string:trim()
    return self:match( "^%s*(.-)%s*$" )
