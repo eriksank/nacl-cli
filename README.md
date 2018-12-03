@@ -19,6 +19,23 @@ This is the dynamically-linked version of the lua embedded scripting engine. It 
 
 Internally, the program is a mixture between native code and lua scripts. However, this is of no importance to the user, who just sees one, small, single native binary.
 
+When it makes sense to do that, the code tends to get moved from lua scripts to native modules, written in C:
+
+```
+$ ls -lh /usr/local/lib/lua/5.1
+total 172K
+-rwxr-xr-x 1 root root 13K Nov 26 08:24 base64.so
+-rwxr-xr-x 1 root root 14K Dec  1 16:23 brieflz.so
+-rwxr-xr-x 1 root root 25K Dec  1 16:23 lfs.so
+-rwxr-xr-x 1 root root 51K Dec  2 16:45 lpeg.so
+-rwxr-xr-x 1 root root 36K Nov 23 06:08 luatweetnacl.so
+-rwxr-xr-x 1 root root 23K Nov 23 14:41 sha2.so
+
+```
+
+The `luapack` tool will produce statically-linked versions of these native modules, suitable for inclusion in the single, executable program. That spares you from dragging around lots of little files to be installed in different locations. It tremendously simplifies software packaging.
+
+
 ## 2. Cryptographic note
 
 The page [NaCl: Networking and Cryptography library](https://nacl.cr.yp.to/valid.html) clarifies the following:
