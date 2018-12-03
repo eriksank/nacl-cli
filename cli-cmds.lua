@@ -34,6 +34,12 @@ Usage:
 
         outputs this helptext]]
 
+-------------------------------------------------------
+-- each function corresponds to a command supplied as
+-- first argument on the commandline
+-- adding a new function creates a new command
+-------------------------------------------------------
+
 cmds.help=function() 
     print(cmds.helptext)
 end

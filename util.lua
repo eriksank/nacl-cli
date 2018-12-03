@@ -6,7 +6,9 @@
 -------------------------------------------------------
 local util={}
 
--- lifted from stack exchange somewhere
+-- The origin of this function is a comment on stackoverflow
+-- It was contributed by its author to the public domain
+
 util.count=function(table)
     local n = 0
     for k,v in pairs(table) do
