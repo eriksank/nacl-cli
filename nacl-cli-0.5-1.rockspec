@@ -1,7 +1,8 @@
 package = "nacl-cli"
 version = "0.5-1"
 source = {
-   url = "https://github.com/eriksank/nacl-cli"
+   url = "https://github.com/eriksank/nacl-cli/archive/0.5-1.tar.gz",
+   tag = "0.5-1"
 }
 description = {
    summary = "nacl-cli is a program that provides a text-based, serialization format for Daniel Bernstein's tweetnacl library",
