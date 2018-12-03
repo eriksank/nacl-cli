@@ -6,5 +6,6 @@
 #      Licensed under the LGPL
 #-------------------------------------------------------
 API_KEY=$(cat API-KEY)
-luarocks upload --api-key=$API_KEY --force nacl-cli-0.5-1.rockspec
+VERSION=$(cat VERSION)
+luarocks upload --api-key=$API_KEY --force nacl-cli-$VERSION.rockspec
 
