@@ -9,6 +9,7 @@ description = {
    license = "LGPL",
    maintainer="Erik Poupaert <erik@sankuru.biz>"
 }
+
 dependencies = {
     'lua >= 5.1',
     'luatweetnacl',
@@ -16,6 +17,7 @@ dependencies = {
     'lbase64', 
     'sha2'
 }
+
 build = {
    type = "builtin",
    modules = {
@@ -25,11 +27,6 @@ build = {
       ["ext-string"] = "ext-string.lua",
       ["nacl-cli"] = "nacl-cli.lua",
       util = "util.lua"
-   },
-  install = {
-    bin = {
-      ["nacl-cli"] = "nacl-cli.lua",
-    }
-  }
+   }
 }
 
