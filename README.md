@@ -8,6 +8,8 @@
 
 If you need signing and verification of signatures, you can use a tool like [minisign](https://github.com/jedisct1/minisign).
 
+## 2. A single, self-contained executable program
+
 The program is a native, C-compiled executable, generated with [luapak](https://github.com/jirutka/luapak), which embeds a (very) small lua interpreter.
 
 ```
@@ -36,7 +38,7 @@ total 172K
 The `luapack` tool will produce statically-linked versions of these native modules, suitable for inclusion in the single, executable program. That spares you from dragging around lots of little files to be installed in different locations. It tremendously simplifies software packaging.
 
 
-## 2. Cryptographic note
+## 3. Cryptographic note
 
 The page [NaCl: Networking and Cryptography library](https://nacl.cr.yp.to/valid.html) clarifies the following:
 
@@ -46,13 +48,13 @@ Daniel J. Bernstein, "Cryptography in NaCl", 45pp."
 
 Here a [link](https://cr.yp.to/highspeed/naclcrypto-20090310.pdf) to Daniel Bernstein's original publication.
 
-## 3. Support for Microsoft Windows
+## 4. Support for Microsoft Windows
 
 It would undoubtedly be possible to generate a static executable for Windows.
 However, Windows is not understood to be viable operating system for serious cryptography.
 If you store or transmit sensitive information in that kind of context, encrypting it, looks irrelevant.
 
-## 4. Installation
+## 5. Installation
 
 Download the latest release from the [releases](https://github.com/eriksank/nacl-cli/releases/latest).
 The redistributable file looks like `nacl-cli-linux-64bit-0.5.tar.gz`. The "0.5" is the version number of the release.
@@ -86,7 +88,7 @@ Root ownership of the programs prevent other programs that you would run as ordi
 This is undoubtedly the number-one reason why linux systems, unlike Windows, generally do not suffer from virus plagues.
 
 
-## 5. Similar programs
+## 6. Similar programs
 
 This is not the first attempt at replacing the venerable PGP program with a simpler command line tool that automatically defaults to modern elliptic-curve cryptography, with its much shorter keys. We are indeed trying to abandon ancient, semi-prime cryptography such as RSA.
 
@@ -104,7 +106,7 @@ Therefore, say no to program platformization.
 The user does not need to know that I have programmed the tool in lua. He can just download the executable program and be done with it.
 
 
-## 6. Usage summary
+## 7. Usage summary
 
 `nacl-cli` supports the following commands:
 
@@ -142,12 +144,12 @@ Usage:
 ```
 
 
-## 7. Detailed usage
+## 8. Detailed usage
 
 Alice wants to send an encrypted message to Bob. How does it go?
 
 
-### 7.1. Alice generates her keys
+### 8.1. Alice generates her keys
 
 
 ```
@@ -162,7 +164,7 @@ nacl.cryp.pub.Hdkh4LrtMb2KfnLAqviyBqpmz4ntKcDCiJh8Pk5kZ89E.yPG
 Now Alice can send her public key to Bob.
 
 
-### 7.2. Bob encrypts a message for Alice
+### 8.2. Bob encrypts a message for Alice
 
 
 ```
@@ -180,7 +182,7 @@ The sender could actually be anybody who knows Alice's key.
 If Bob wanted to guarantee to Alice that the message came from him, he would have had to sign it first.
 Hence, this message is Off-The-Record (OTR).
 
-### 7.3. Alice decrypts Bob's message with her secret key
+### 8.3. Alice decrypts Bob's message with her secret key
 
 ```
 alice $ echo "--nacl-crypt--begin--
@@ -200,7 +202,7 @@ alice $ cat mymess.txt | seckey=nacl.cryp.sec.vhooeDeX4pckXxrA5wRCxU8EeU4NexgxQV
 this is my secret message
 ```
 
-## 8. Note about using secrets on the command line
+## 9. Note about using secrets on the command line
 
 When a program parameter is not security-sensitive, you can simply supply it as an argument. Example:
 
@@ -233,7 +235,7 @@ Still, it is possible to do a lot of things wrong. The following mistakes can im
 
 Still, there is not really an alternative either. Conclusion: as usual, it is only safe, if you know what you are doing.
 
-## 9. Running the built-in tests on nacl-cli
+## 10. Running the built-in tests on nacl-cli
 
 The program `_smoketest.sh` tests all commands through the commandline interface:
 
@@ -287,9 +289,9 @@ CHECK: ok
 
 ```
 
-## 10. Reusing and embedding the script in your own program
+## 11. Reusing and embedding the script in your own program
 
-### 10.1. Chaining nacl-cli as an external program
+### 11.1. Chaining nacl-cli as an external program
 
 Approximately every programming language worth its salt can fork off a child process to start running another program in it.
 `nacl-cli` operates as a filter. It accepts its input on `stdin` and produces output on `stdout`.
@@ -297,7 +299,7 @@ If the program terminated successfully, it will conventionally terminate with re
 Otherwise, it will terminate with result code `1`.
 In case of errors, you will find the error message on `stderr`.
 
-### 10.2. Loading nacl-cli as a lua module
+### 11.2. Loading nacl-cli as a lua module
 
 You can install `nacl-cli` in your lua environment with:
 
@@ -321,7 +323,7 @@ armour.isvalid_seckey(seckey_b58)
 armour.isvalid_pubkey(pubkey_b58)
 ```
 
-## 11. License
+## 12. License
 
 ```
 Written by Erik Poupaert
