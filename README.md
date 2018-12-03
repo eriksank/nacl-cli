@@ -333,8 +333,7 @@ Feel free to post a message on the [issue list](https://github.com/eriksank/nacl
 
 ```
 Written by Erik Poupaert
-Cambodia
-(c) 2018
+Cambodia,(c) 2018
 Licensed under the LGPL
 ```
 
