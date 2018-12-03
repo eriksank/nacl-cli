@@ -120,7 +120,7 @@ The user does not need to know that I have programmed the tool in lua. He can ju
 
 ```bash
 
-$ ./nacl-cli help
+$ nacl-cli help
 Usage:
 
     nacl-cli genseckey
@@ -193,14 +193,14 @@ alice $ echo "--nacl-crypt--begin--
 > .
 > 8URzXs0ErZ8TqqMZsddai2a+/mRiuTa6BUxkPubMMtsihsPYchtGNxTq
 > --nacl-crypt--end--
-> " | seckey=nacl.cryp.sec.vhooeDeX4pckXxrA5wRCxU8EeU4NexgxQVjz2QhhDQ1n.uzw ./nacl-cli dec
+> " | seckey=nacl.cryp.sec.vhooeDeX4pckXxrA5wRCxU8EeU4NexgxQVjz2QhhDQ1n.uzw nacl-cli dec
 this is my secret message
 ```
 
 Alice could also have stored the message in a file mymess.txt and then decrypt it:
 
 ```
-alice $ cat mymess.txt | seckey=nacl.cryp.sec.vhooeDeX4pckXxrA5wRCxU8EeU4NexgxQVjz2QhhDQ1n.uzw ./nacl-cli dec
+alice $ cat mymess.txt | seckey=nacl.cryp.sec.vhooeDeX4pckXxrA5wRCxU8EeU4NexgxQVjz2QhhDQ1n.uzw nacl-cli dec
 this is my secret message
 ```
 
