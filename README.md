@@ -325,7 +325,11 @@ armour.isvalid_seckey(seckey_b58)
 armour.isvalid_pubkey(pubkey_b58)
 ```
 
-## 12. License
+## 12. Issues and feedback
+
+Feel free to post a message on the [issue list](https://github.com/eriksank/nacl-cli/issues).
+
+## 13. License
 
 ```
 Written by Erik Poupaert
