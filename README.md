@@ -376,7 +376,8 @@ The scripts will be in the `share` subfolder:
 
 ```
 $ ls .luapak/share/lua/5.1/
-armour.lua    cli.lua         hmac.lua  nacl_cli_0_5_1-armour.lua    nacl_cli_0_5_1-ext-string.lua  nacl-cli.lua
+armour.lua    cli.lua         hmac.lua  nacl_cli_0_5_1-armour.lua
+    nacl_cli_0_5_1-ext-string.lua  nacl-cli.lua
 ...
 ```
 
