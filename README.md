@@ -325,11 +325,84 @@ armour.isvalid_seckey(seckey_b58)
 armour.isvalid_pubkey(pubkey_b58)
 ```
 
-## 12. Issues and feedback
+## 12. Security verifiables
+
+### 12.1 Operating system platform security
+
+The program routs its system calls through the libc system library and hence forth through the kernel.
+
+The kernel itself is always a system security auditable:
+
+```
+$ ls -lh /boot/vmlinuz*
+-rw-r--r-- 1 root root 7.0M Jun 28  2017 /boot/vmlinuz-4.8.0-53-generic
+```
+
+### 12.2 General user-space security
+
+The program has two native, dynamically linked system dependencies:
+
+```
+$ ldd nacl-cli
+	linux-vdso.so.1 =>  (0x00007fff7189a000)
+	libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007f1012003000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f1011c3a000)
+	/lib64/ld-linux-x86-64.so.2 (0x0000561fdee9d000)
+
+```
+Therefore, the libraries `libc.so.6` and `libm.so.6` are platform-wide security auditables. Your program can never be safer than these two libraries.
+
+### 12.3 Specific user-space security
+
+**scripting engine**
+
+The program embeds a scripting engine:
+
+```
+$ ls -lh /usr/lib/x86_64-linux-gnu/liblua5.1.a
+-rw-r--r-- 1 root root 330K Apr 14  2016 /usr/lib/x86_64-linux-gnu/liblua5.1.a
+```
+for which you can find the source code at [lua/lua](https://github.com/lua/lua)
+
+If you obtain this native archive through your linux distribution, you may need to verify its byte-for-byte [reproducible build](https://wiki.debian.org/ReproducibleBuilds) status.
+
+The source code for the scripting engine is a security auditable.
+
+**external, third-party lua modules**
+
+You can find the external dependencies in the `.luapak` subfolder in the buidl folder.
+
+The scripts will be in the `share` subfolder:
+
+```
+$ ls .luapak/share/lua/5.1/
+armour.lua    cli.lua         hmac.lua  nacl_cli_0_5_1-armour.lua    nacl_cli_0_5_1-ext-string.lua  nacl-cli.lua
+...
+```
+
+The native archives in the `lib` subfolder:
+
+```
+$ ls .luapak/lib/lua/5.1
+base64.a  lpeg.a  luatweetnacl.a  sha2.a
+```
+
+Unfortunately, the `luapak` tool seems to remove the source code that went into building these native archives.
+This creates a reproducible build problem.
+
+__TO DO: I will raise this issue with the luapak author.__
+
+The source code of these application dependencies are security auditables.
+
+### 12.4 Verification responsibility
+
+When deploying the program for handling security-sensitive data, it is the user's own responsibility to commission version-specific, source-code level audits of the security auditables.
+
+## 13. Issues and feedback
 
 Feel free to post a message on the [issue list](https://github.com/eriksank/nacl-cli/issues).
 
-## 13. License
+## 14. License
 
 ```
 Written by Erik Poupaert
