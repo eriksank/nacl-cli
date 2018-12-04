@@ -47,7 +47,7 @@ total 172K
 
 ```
 
-The `luapack` tool will produce statically-linked versions of these native modules, suitable for inclusion in the single, executable program. That spares you from dragging around lots of little files to be installed in different locations. It tremendously simplifies software packaging.
+The `luapak` tool will produce statically-linked versions of these native modules, suitable for inclusion in the single, executable program. That spares you from dragging around lots of little files to be installed in different locations. It tremendously simplifies software packaging.
 
 
 ## 4. Support for Microsoft Windows
