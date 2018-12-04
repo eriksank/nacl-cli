@@ -329,7 +329,7 @@ armour.isvalid_pubkey(pubkey_b58)
 
 ### 12.1 Operating system platform security
 
-The program routs its system calls through the libc system library and hence forth through the kernel.
+The program routs its system calls through the `libc` system library and hence forth through the kernel.
 
 The kernel itself is always a system security auditable:
 
@@ -395,6 +395,8 @@ __TO DO: I will raise this issue with the luapak author.__
 The source code of these application dependencies are security auditables.
 
 ### 12.4 Verification responsibility
+
+Yes, even a rather small program generally causes a relatively large security audit issue.
 
 When deploying the program for handling security-sensitive data, it is the user's own responsibility to commission version-specific, source-code level audits of the security auditables.
 
