@@ -381,7 +381,7 @@ armour.lua    cli.lua         hmac.lua  nacl_cli_0_5_1-armour.lua
 ...
 ```
 
-The native archives in the `lib` subfolder:
+The native archives will be in the `lib` subfolder:
 
 ```
 $ ls .luapak/lib/lua/5.1
