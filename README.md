@@ -391,7 +391,7 @@ base64.a  lpeg.a  luatweetnacl.a  sha2.a
 Unfortunately, the `luapak` tool seems to remove the source code that went into building these native archives.
 This creates a reproducible build problem.
 
-_[TO DO: I will raise this issue with the luapak author.]_
+_[TO DO: I have raised the [issue](https://github.com/jirutka/luapak/issues/4) with the luapak author.]_
 
 The source code of these application dependencies are security auditables.
 
