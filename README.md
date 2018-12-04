@@ -362,7 +362,7 @@ The program embeds a scripting engine:
 $ ls -lh /usr/lib/x86_64-linux-gnu/liblua5.1.a
 -rw-r--r-- 1 root root 330K Apr 14  2016 /usr/lib/x86_64-linux-gnu/liblua5.1.a
 ```
-for which you can find the source code at [lua/lua](https://github.com/lua/lua)
+for which you can find the source code at [lua/lua](https://github.com/lua/lua).
 
 If you obtain this native archive through your linux distribution, you may need to verify its byte-for-byte [reproducible build](https://wiki.debian.org/ReproducibleBuilds) status.
 
