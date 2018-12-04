@@ -1,8 +1,8 @@
 package = "nacl-cli"
-version = "0.5-2"
+version = "=VERSION="
 source = {
    url = "git://github.com/eriksank/nacl-cli",
-    tag = "0.5-2"
+    tag = "=VERSION="
 }
 description = {
    summary = "nacl-cli is a program that provides a text-based, serialization format for Daniel Bernstein's tweetnacl library",
@@ -23,11 +23,11 @@ build = {
    type = "builtin",
    modules = {
       armour = "armour.lua",
-      cli = "cli.lua",
+      ["nacl-cli"] = "nacl-cli.lua",
+      ["cli"] = "cli.lua",
       ["cli-cmds"] = "cli-cmds.lua",
       ["ext-string"] = "ext-string.lua",
-      ["nacl-cli"] = "nacl-cli.lua",
-      util = "util.lua"
+      ["util"] = "util.lua",
    }
 }
 

@@ -5,11 +5,11 @@
 --      Licensed under the LGPL
 -------------------------------------------------------
 require("ext-string")
+local util=require("util")
 local nacl = require("luatweetnacl")
 local base58 = require("base58")
 local base64 = require("base64")
 local sha2 = require("sha2")
-local util=require("util")
 
 local armour = {}
 
