@@ -340,7 +340,7 @@ $ ls -lh /boot/vmlinuz*
 
 ### 12.2 General user-space security
 
-The program has two native, dynamically linked system dependencies:
+The program has two native, dynamically linked system dependencies (the other ones are virtual linker scripts):
 
 ```
 $ ldd nacl-cli
