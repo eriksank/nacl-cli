@@ -354,7 +354,7 @@ Therefore, the libraries `libc.so.6` and `libm.so.6` are platform-wide security 
 
 ### 12.3 Specific user-space security
 
-**scripting engine**
+**= scripting engine =**
 
 The program embeds a scripting engine:
 
@@ -368,7 +368,7 @@ If you obtain this native archive through your linux distribution, you may need 
 
 The source code for the scripting engine is a security auditable.
 
-**external, third-party lua modules**
+**= external, third-party lua modules =**
 
 You can find the external dependencies in the `.luapak` subfolder in the buidl folder.
 
