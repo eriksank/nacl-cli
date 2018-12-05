@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #-------------------------------------------------------
-#      nacl-cli
+#      admin
 #      Written by Erik Poupaert, Cambodia
 #      (c) 2018
 #      Licensed under the LGPL
@@ -19,5 +19,6 @@ if [ ! -e "$cmdfile" ] ; then
     exit 1
 fi
 
-$cmdfile
+shift
+$cmdfile "$@"
 

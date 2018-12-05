@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 #-------------------------------------------------------
-#      nacl-cli
+#      admin
 #      Written by Erik Poupaert, Cambodia
 #      (c) 2018
 #      Licensed under the LGPL
 #-------------------------------------------------------
-API_KEY=$(cat API-KEY)
+PROGRAM=$(cat PROGRAM)
 VERSION=$(cat VERSION)
-luarocks upload --api-key=$API_KEY --force nacl-cli-$VERSION.rockspec
+API_KEY=$(cat API-KEY)
+luarocks upload --api-key=$API_KEY --force $PROGRAM-$VERSION.rockspec
 

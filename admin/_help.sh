@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #-------------------------------------------------------
-#      nacl-cli
+#      admin
 #      Written by Erik Poupaert, Cambodia
 #      (c) 2018
 #      Licensed under the LGPL
@@ -12,7 +12,7 @@ Usage
     == develop ==
 
         push                    update github
-        build                   produce nacl-cli executable
+        build                   produce program executable
                                    update rockspec file
 
     == publish ==
