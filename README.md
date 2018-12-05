@@ -395,6 +395,14 @@ _[TO DO: I have raised the [issue](https://github.com/jirutka/luapak/issues/4) w
 
 The source code of these application dependencies are security auditables.
 
+**= C system compiler =**
+
+Security stands and falls with the C compiler used to compile the application.
+Therefore, `gcc` is a critical piece of security infrastructure on a linux system.
+
+* [The trusting trust problem](https://www.schneier.com/blog/archives/2006/01/countering_trus.html)
+* Recent [Stackoverflow discussion](https://softwareengineering.stackexchange.com/questions/184874/is-ken-thompsons-compiler-hack-still-a-threat) about the trusting trust problem
+
 ### 12.4 Verification responsibility
 
 Yes, even a rather small program generally causes a relatively large security audit issue.
