@@ -8,14 +8,13 @@
 function check_errcode {
     echo -n "$1 ... "
     if [ "$2" -eq 0 ] ; then
-        echo "SUCCESS"
+        >&2 echo "SUCCESS"
     else
-        echo "FAIL"
+        >&2 echo "FAIL"
         exit 1
     fi
 }
 
-#PROGRAM="lua nacl-cli.lua"
 PROGRAM="./nacl-cli"
 
 echo "[generating secret] ..."

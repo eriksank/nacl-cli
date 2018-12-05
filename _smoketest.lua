@@ -19,7 +19,7 @@ local title=function(header)
     print ("-------------------")
 end
 
-armour=require("armour")
+armour=require("lnacl-cli.armour")
 base58=require("base58")
 
 title("checking key generation")

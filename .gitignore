@@ -5,4 +5,5 @@ nacl-cli
 dist
 .luapak
 *.rockspec
+*.o
 

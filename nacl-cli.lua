@@ -5,11 +5,11 @@
 --      (c) 2018
 --      Licensed under the LGPL
 -------------------------------------------------------
-armour=require("armour")
-util=require("util")
-cli=require("cli")
+armour=require("lnacl-cli.armour")
+util=require("lnacl-cli.util")
+cli=require("lnacl-cli.cli")
 --
-local cmds=require("cli-cmds")
+local cmds=require("lnacl-cli.cli-cmds")
 -------------------------------------------------------
 -- program entry script
 -------------------------------------------------------

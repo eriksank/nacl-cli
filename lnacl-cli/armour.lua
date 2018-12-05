@@ -4,8 +4,8 @@
 --      (c) 2018
 --      Licensed under the LGPL
 -------------------------------------------------------
-require("ext-string")
-local util=require("util")
+require("lnacl-cli/ext-string")
+local util=require("lnacl-cli/util")
 local nacl = require("luatweetnacl")
 local base58 = require("base58")
 local base64 = require("base64")
