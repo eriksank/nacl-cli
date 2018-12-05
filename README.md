@@ -312,7 +312,7 @@ $ luarocks install nacl-cli
 You can require it in your own script using:
 
 ```
-local armour=require("armour")
+local armour=require("lnacl-cli.armour")
 ```
 
 You can use the following functions:
