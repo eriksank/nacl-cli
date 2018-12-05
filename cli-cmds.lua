@@ -4,10 +4,6 @@
 --      (c) 2018
 --      Licensed under the LGPL
 -------------------------------------------------------
-local armour=require("armour")
-local util=require("util")
-local cli=require("cli")
-
 local cmds={}
 
 cmds.helptext=[[

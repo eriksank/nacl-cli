@@ -5,9 +5,11 @@
 --      (c) 2018
 --      Licensed under the LGPL
 -------------------------------------------------------
+armour=require("armour")
+util=require("util")
+cli=require("cli")
+--
 local cmds=require("cli-cmds")
-local cli=require("cli")
-
 -------------------------------------------------------
 -- program entry script
 -------------------------------------------------------

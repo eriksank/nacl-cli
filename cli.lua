@@ -9,8 +9,6 @@
 -- This module implements a few generic command line
 -- argument processing functions
 -------------------------------------------------------
-
-local util=require("util")
 local cli={}
 
 
