@@ -7,11 +7,11 @@
 #-------------------------------------------------------
 VERSION=$(cat VERSION)
 echo "creating release for version $VERSION"
-./_build.sh
+./admin.sh build
 RELEASE=nacl-cli-linux-64bit-$VERSION
 rm -rf $RELEASE
 mkdir -p $RELEASE
-cp nacl-cli installer/install.sh installer/uninstall.sh \
+cp nacl-cli install/install.sh install/uninstall.sh \
      _smoketest.sh $RELEASE
 rm -f $RELEASE.tar.gz
 tar cvzf $RELEASE.tar.gz $RELEASE/
