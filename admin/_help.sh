@@ -14,6 +14,7 @@ Usage
         push                    update github
         build                   produce program executable
                                    update rockspec file
+        clean                   remove all artifacts built
 
     == publish ==
 
