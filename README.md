@@ -401,11 +401,21 @@ Yes, even a rather small program generally causes a relatively large security au
 
 When deploying the program for handling security-sensitive data, it is the user's own responsibility to commission version-specific, source-code level audits of the security auditables.
 
-## 13. Issues and feedback
+## 13. admin scripts
+
+The `admin.sh` facilitates developing, building, and publishing the program.
+You can use `./admin.sh help` to view the commands available.
+
+It builds the executable using `luapack`.
+It pushes the source code changes to the github publication platform.
+It produces the binary release tarball, to be uploaded and tagged manually at github.
+It pushes the lua module to the luarocks distribution platform.
+
+## 14. Issues and feedback
 
 Feel free to post a message on the [issue list](https://github.com/eriksank/nacl-cli/issues).
 
-## 14. License
+## 15. License
 
 ```
 Written by Erik Poupaert

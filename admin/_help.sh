@@ -11,7 +11,7 @@ Usage
 
     == develop ==
 
-        push                    update github
+        push  [msg]             update github repo with optional commit message
         build                   produce program executable
                                    update rockspec file
         clean                   remove all artifacts built
