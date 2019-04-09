@@ -107,6 +107,9 @@ Therefore, say no to program platformization.
 
 The user does not need to know that I have programmed the tool in lua. He can just download the executable program and be done with it.
 
+`nacl-cli` works for files which can fit in memory. For files which are too large to fit in memory,
+consider using [nacl-cli-big](https://github.com/danrabinowitz/nacl-cli-big), which is a drop-in-compatable
+wrapper around `nacl-cli`.
 
 ## 7. Usage summary
 
